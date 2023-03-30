@@ -1,41 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 </head>
-<body>
+<table>
 
 <div th:replace="fragments :: page-header"></div>
 
-<div class="container body-content">
+<table class="container body-content"></table>
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
-<table>
-    <thead> <!--/th=bold and centered*/-->
-    <tr>
-        <th>Title</th> <!--/th=bold and centered*/-->
-        <th>Employer</th>
-        <th>Location</th>
-        <th>Position Type</th>
-        <th>Core Competency</th>
-    </tr> <!--/tr= a row*/-->
-    </thead> <!--/thead= identifies one or more table rows containing column labels */-->
-    <tbody>
-    <tr th:each="job:${jobs}"> <!--/th:each iterates through a collection of objects*/-->
-        <td th:text="${job.getId()}"></td>
-        <td th:text="${job.getEmployer()}"></td>
-        <td th:text="${job.getLocation()}"></td>
-        <td th:text="${job.getPositionType()}"></td>
-        <td th:text="${job.getSkill()}"></td>
-
-
-    </tr>
-    </tbody>
-    </table>
-
-</div>
-
-</body>
-</html>
+    <div th:replace="fragments :: jobs-list"></div>
+</table>

@@ -11,7 +11,7 @@
     <title th:text="'TechJobs' + ${title == null ? '' : ' :: ' + title}">TechJobs</title>
 </head>
 
-<body>
+<div>
 
     <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -26,6 +26,29 @@
             </div>
         </div>
     </div>
+    <div th:fragment="jobs-list">
+        <table th:each="job : ${jobs}" class="job-listing">
 
-</body>
-</html>
+            <tr>
+                <td>ID</td>
+                <td th:text="${job.id}"></td>
+            </tr>
+            <tr>
+                <td>Employer</td>
+                <td th:text="${job.Employer}"></td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td th:text="${job.Location}"></td>
+            </tr>
+            <tr>
+                <td>Position Type</td>
+                <td th:text="${job.positionType}"></td>
+            </tr>
+            <tr>
+                <td>Core Competency</td>
+                <td th:text="${job.coreCompetency}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
